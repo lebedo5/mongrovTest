@@ -28,22 +28,41 @@ prepare_react_native_project!
 # }
 # ```
 flipper_config = FlipperConfiguration.disabled
-if ENV['NO_FLIPPER'] == "1" || ENV['CI'] then
-  # Explicitly disabled through environment variables
-  flipper_config = FlipperConfiguration.disabled
-elsif podfile_properties.key?('ios.flipper') then
-  # Configure Flipper in Podfile.properties.json
-  if podfile_properties['ios.flipper'] == 'true' then
-    flipper_config = FlipperConfiguration.enabled(["Debug", "Release"])
-  elsif podfile_properties['ios.flipper'] != 'false' then
-    flipper_config = FlipperConfiguration.enabled(["Debug", "Release"], { 'Flipper' => podfile_properties['ios.flipper'] })
-  end
-end
+# if ENV['NO_FLIPPER'] == "1" || ENV['CI'] then
+#   # Explicitly disabled through environment variables
+#   flipper_config = FlipperConfiguration.disabled
+# elsif podfile_properties.key?('ios.flipper') then
+#   # Configure Flipper in Podfile.properties.json
+#   if podfile_properties['ios.flipper'] == 'true' then
+#     flipper_config = FlipperConfiguration.enabled(["Debug", "Release"])
+#   elsif podfile_properties['ios.flipper'] != 'false' then
+#     flipper_config = FlipperConfiguration.enabled(["Debug", "Release"], { 'Flipper' => podfile_properties['ios.flipper'] })
+#   end
+# end
 
 target 'mongrovTest' do
   use_expo_modules!
   config = use_native_modules!
 
+   # If you need GoogleMaps support on iOS
+#   pod 'GoogleMaps'
+#   use_frameworks! :linkage => :static
+#   pod 'Google-Maps-iOS-Utils', :git => 'https://github.com/Simon-TechForm/google-maps-ios-utils.git', :branch => 'feat/support-apple-silicon'
+#
+#   use_frameworks! :linkage => :static
+#   rn_maps_path = '../node_modules/react-native-maps'
+#   pod 'react-native-google-maps', :path => rn_maps_path
+    use_frameworks!
+    pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text', :modular_headers => true
+# pre_install do |installer|
+# 	# workaround for https://github.com/CocoaPods/CocoaPods/issues/3289
+# 	Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+# end
+use_frameworks! :linkage => :static
+      rn_maps_path = '../node_modules/react-native-maps'
+      pod 'react-native-google-maps', :path => rn_maps_path
+      pod 'GoogleMaps'
+      pod 'Google-Maps-iOS-Utils'
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
   use_frameworks! :linkage => ENV['USE_FRAMEWORKS'].to_sym if ENV['USE_FRAMEWORKS']
 
@@ -59,7 +78,7 @@ target 'mongrovTest' do
     :hermes_enabled => podfile_properties['expo.jsEngine'] == nil || podfile_properties['expo.jsEngine'] == 'hermes',
     :fabric_enabled => flags[:fabric_enabled],
     # Note that if you have use_frameworks! enabled, Flipper will not work if enabled
-    :flipper_configuration => flipper_config,
+#     :flipper_configuration => flipper_config,
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
@@ -79,7 +98,7 @@ target 'mongrovTest' do
     )
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
     File.delete("./.xcode.env.local") if File.exist?("./.xcode.env.local")
-  
+
     # This is necessary for Xcode 14, because it signs resource bundles by default
     # when building for devices.
     installer.target_installation_results.pod_target_installation_results

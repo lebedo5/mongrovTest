@@ -10,5 +10,5 @@ module.exports = {
   ],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.maestro/", "@react-native"],
   testEnvironment: "jsdom",
-  setupFiles: ["<rootDir>/test/setup.ts"],
+  setupFiles: ["<rootDir>/text/setup.ts"],
 }
