@@ -16,6 +16,7 @@
 		400EB2C1E1807E6CBC68B7AB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E59D51E504BC9C5F46169 /* ExpoModulesProvider.swift */; };
 		BE406F562862D73000A81E39 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE406F552862D73000A81E39 /* BootSplash.storyboard */; };
 		C9EC8D2FFC3E639D4B4A75C9 /* Pods_mongrovTest_mongrovTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62789C7E3535AA46FC94213 /* Pods_mongrovTest_mongrovTestTests.framework */; };
+		E01736B52A1AC6DC00F0113C /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E01736B42A1AC6DC00F0113C /* Mulish-Regular.ttf */; };
 		E03A4C682A18EC5A00F2AD49 /* AirGoogleMaps in Resources */ = {isa = PBXBuildFile; fileRef = E03A4C672A18EC5A00F2AD49 /* AirGoogleMaps */; };
 		E03A4C6A2A19597900F2AD49 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E03A4C692A19597900F2AD49 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		C62789C7E3535AA46FC94213 /* Pods_mongrovTest_mongrovTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mongrovTest_mongrovTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1042104FE3AB28334E0CF05 /* Pods-mongrovTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mongrovTest.release.xcconfig"; path = "Target Support Files/Pods-mongrovTest/Pods-mongrovTest.release.xcconfig"; sourceTree = "<group>"; };
 		D5AFED2E09CC2E86D1338C0F /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-mongrovTest-mongrovTestTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		E01736B42A1AC6DC00F0113C /* Mulish-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mulish-Regular.ttf"; path = "../../../Mulish-Regular.ttf"; sourceTree = "<group>"; };
 		E03A4C672A18EC5A00F2AD49 /* AirGoogleMaps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AirGoogleMaps; path = ../../../AirGoogleMaps; sourceTree = "<group>"; };
 		E03A4C692A19597900F2AD49 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E03A4C6B2A195D2F00F2AD49 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -113,6 +115,7 @@
 		13B07FAE1A68108700A75B9A /* mongrovTest */ = {
 			isa = PBXGroup;
 			children = (
+				E01736B32A1AC62400F0113C /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -211,6 +214,14 @@
 				1A01E1253A8CE863F9D54819 /* Pods-mongrovTest-mongrovTestTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E01736B32A1AC62400F0113C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E01736B42A1AC6DC00F0113C /* Mulish-Regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		E4DC8A9EFE6F9C5F90DD96E4 /* mongrovTestTests */ = {
@@ -318,6 +329,7 @@
 				E03A4C682A18EC5A00F2AD49 /* AirGoogleMaps in Resources */,
 				BE406F562862D73000A81E39 /* BootSplash.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E01736B52A1AC6DC00F0113C /* Mulish-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

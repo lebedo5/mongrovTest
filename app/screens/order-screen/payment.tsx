@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite"
 import { Pressable, StyleSheet, View } from "react-native"
-import { Checkbox, Divider, Text } from "../../components"
+import { Divider, Text } from "../../components"
 import { fontSize, size } from "../../utils/size"
 import { palette } from "../../theme/palette"
 import React, { useState } from "react"

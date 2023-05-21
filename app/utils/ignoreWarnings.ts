@@ -7,4 +7,5 @@ import { LogBox } from "react-native"
 // prettier-ignore
 LogBox.ignoreLogs([
   "Require cycle:",
+  "VirtualizedLists should never be nested inside plain ScrollViews with the same orientation because it can break windowing and other functionality"
 ])

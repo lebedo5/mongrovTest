@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { observer } from "mobx-react-lite"
 import { StyleSheet } from "react-native"
 import { Button, Divider, Header, Screen } from "app/components"

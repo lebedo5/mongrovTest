@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleProp, Text as ReactNativeText, TextStyle } from "react-native"
 import { presets, TextPresets } from "./text.presets"
-import { colors } from "../../theme"
+import { colors, typography } from "../../theme"
 import { fontSize } from "../../utils/size"
 
 export interface TextProps {
@@ -16,7 +16,7 @@ export interface TextProps {
    * One of the different types of text presets.
    */
   preset?: TextPresets | string;
-  adjustsFontSizeToFit: number | any;
+  adjustsFontSizeToFit: number | any | undefined;
   children: React.ReactNode
 }
 const BASE: TextStyle = {
@@ -24,6 +24,7 @@ const BASE: TextStyle = {
   fontSize: fontSize(14),
   fontWeight: '400',
 };
+
 export function Text(props: TextProps) {
   const {
     preset = 'default',
@@ -35,9 +36,7 @@ export function Text(props: TextProps) {
   } = props;
   const content = children ? children : text;
 
-  const style = presets()[preset] || presets().default;
-
-  const styles = [BASE, styleOverride];
+  const styles = [BASE, styleOverride, { fontFamily: typography.primary }];
 
   return (
     <ReactNativeText adjustsFontSizeToFit={adjustsFontSizeToFit} {...rest} style={styles}>

@@ -51,6 +51,7 @@ export const ContactDetailsCarrier = observer(({ userData, onChange }: ContactDe
         onChangeText={(value) => onChange(value, "number", true)}
         keyboardType="numeric"
         style={styles.inputPhoneContainer}
+        placeholderTextColor={palette.separatorTextColor}
       />
       <Divider size={20} />
     </View>

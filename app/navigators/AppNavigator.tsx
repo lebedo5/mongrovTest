@@ -1,9 +1,3 @@
-/**
- * The app navigator (formerly "AppNavigator" and "MainNavigator") is used for the primary
- * navigation flows of your app.
- * Generally speaking, it will contain an auth flow (registration, login, forgot password)
- * and a "main" flow which the user will use once logged in.
- */
 import {
   DarkTheme,
   DefaultTheme,
@@ -57,6 +51,15 @@ const AppStack = observer(function AppStack() {
     <Tab.Navigator
       initialRouteName={'Order'}
       screenOptions={{ headerShown: false, tabBarIconStyle: { display: "none" } }}
+      // screenOptions={{
+      //   headerShown: false,
+      //   tabBarHideOnKeyboard: true,
+      //   tabBarStyle: [$tabBar, { height: bottom + 70 }],
+      //   tabBarActiveTintColor: colors.text,
+      //   tabBarInactiveTintColor: colors.text,
+      //   tabBarLabelStyle: $tabBarLabel,
+      //   tabBarItemStyle: $tabBarItem,
+      // }}
       tabBar={(props) => <BottomNavBar {...props}
       />}
     >

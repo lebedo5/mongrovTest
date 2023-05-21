@@ -59,7 +59,7 @@ export const typography = {
   /**
    * The primary font. Used in most places.
    */
-  primary: fonts.spaceGrotesk,
+  primary: Platform.select({ ios: 'Mulish-Regular', android: 'mulish_regular' }),
   /**
    * An alternate font used for perhaps titles and stuff.
    */

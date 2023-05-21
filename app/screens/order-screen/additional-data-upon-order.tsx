@@ -31,6 +31,7 @@ export const AdditionalDataUponOrder = observer(({ additionalService, onChange }
           label={"Кількість грузчиків"}
           placeholder={"2"}
           inputStyle={styles.inputContainer}
+          keyboardType={"numeric"}
         />
         <Divider direction={"vertical"} size={20} />
         <Input
@@ -39,6 +40,7 @@ export const AdditionalDataUponOrder = observer(({ additionalService, onChange }
           label={"Зайнятість"}
           placeholder={"2 години"}
           inputStyle={styles.inputContainer}
+          keyboardType={"numeric"}
         />
       </View> : null}
       <Divider size={20} />

@@ -1,130 +1,75 @@
-# Welcome to your new ignited app!
+# Вітаю в тестовому проєкті 
 
 [![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
 
 ## The latest and greatest boilerplate for Infinite Red opinions
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+Для запуску проєкта виконати декількі дій 
 
-Currently includes:
+npm install --force
+or yarn install 
 
-- React Native
-- React Navigation
-- MobX State Tree
-- TypeScript
-- And more!
+Android:
+adb reverse tcp:8081 tcp:8081
 
-## Quick Start
+npx react-native start 
 
-The Ignite boilerplate project's structure will look similar to this:
+Ios: немає особливих вказань
 
-```
-ignite-project
-├── app
-│   ├── components
-│   ├── config
-│   ├── i18n
-│   ├── models
-│   ├── navigators
-│   ├── screens
-│   ├── services
-│   ├── theme
-│   ├── utils
-│   ├── app.tsx
-├── test
-│   ├── __snapshots__
-│   ├── mockFile.ts
-│   ├── setup.ts
-├── README.md
-├── android
-│   ├── app
-│   ├── build.gradle
-│   ├── gradle
-│   ├── gradle.properties
-│   ├── gradlew
-│   ├── gradlew.bat
-│   ├── keystores
-│   └── settings.gradle
-├── ignite
-│   └── templates
-|       |── app-icon
-│       ├── component
-│       ├── model
-│       ├── navigator
-│       └── screen
-├── index.js
-├── ios
-│   ├── IgniteProject
-│   ├── IgniteProject-tvOS
-│   ├── IgniteProject-tvOSTests
-│   ├── IgniteProject.xcodeproj
-│   └── IgniteProjectTests
-├── .env
-└── package.json
 
-```
+Всі додаткові компоненти які є в проєкті такі як: `<Button />`, `<Text />`, `<Input />`, `<Checkbox />` - 
+це виконано для легшої адаптації цих компонентів в усьому проєкті при зміні дизайна чи шрифта.
 
-### ./app directory
+Всі іконки виконано за допомогою бібліотеки `react-native-svg` - для чіткої картинки на в emulator,
+для того щоб не залежно від платформи на якому ви дивитесь проєкт іконки виглядали однаково, не було проблем з 
+відображженям картинки на різних типах ємуляторах.
 
-Included in an Ignite boilerplate project is the `app` directory. This is a directory you would normally have to create when using vanilla React Native.
+## Функціонал
 
-The inside of the `app` directory looks similar to the following:
+`size()` - Повертає значення враховуючи ширину єкрана.
 
-```
-app
-├── components
-├── config
-├── i18n
-├── models
-├── navigators
-├── screens
-├── services
-├── theme
-├── utils
-├── app.tsx
-```
+`getLongitudeDelta()` - Динамічо визначае якє сама має бути значення `longitudeDelta` для регіона яке 
+ми вибираемо на карті.
 
-**components**
-This is where your reusable components live which help you build your screens.
 
-**i18n**
-This is where your translations will live if you are using `react-native-i18n`.
+## Google maps
 
-**models**
-This is where your app's models will live. Each model has a directory which will contain the `mobx-state-tree` model file, test file, and any other supporting files like actions, types, etc.
+При переході зі скріна **Order** => **OrderData** на мапі відображаеться траєкторія маршрута, якщо повернутися на скрін 
+**Order** та змінити адресу "Загрузки" чи "Вигрузки" та знову перейти нв **OrderData** траєкторія маршруту 
+змінюються динамічно так самє як динамічно визначае яким має бути  `longitudeDelta` та `latitudeDelta` в залежності від 
+повної відстані маршрута. 
 
-**navigators**
-This is where your `react-navigation` navigators will live.
+Для ios та android імплентована ондакова `customMapStyle` тема
 
-**screens**
-This is where your screen components will live. A screen is a React component which will take up the entire screen and be part of the navigation hierarchy. Each screen will have a directory containing the `.tsx` file, along with any assets or other helper files.
+## Контактні данні 
 
-**services**
-Any services that interface with the outside world will live here (think REST APIs, Push Notifications, etc.).
+Якщо користувач не в введе свох контактні даанні на скріні **Order**, на скріні **OrderData** 
+він буде бачити 
 
-**theme**
-Here lives the theme for your application, including spacing, colors, and typography.
+![contactData.png](contactData.png)
 
-**utils**
-This is a great place to put miscellaneous helpers and utilities. Things like date helpers, formatters, etc. are often found here. However, it should only be used for things that are truly shared across your application. If a helper or utility is only used by a specific component or model, consider co-locating your helper with that component or model.
+Поля будуть зявлятися тількі якщо юзер їх заповнить на попередньому скріні в блоці
 
-**app.tsx** This is the entry point to your app. This is where you will find the main App component which renders the rest of the application.
+**Контактні данні** 
 
-### ./ignite directory
+![contactDataWithInformation.png](contactDataWithInformation.png)
 
-The `ignite` directory stores all things Ignite, including CLI and boilerplate items. Here you will find templates you can customize to help you get started with React Native.
+## Календар 
 
-### ./test directory
+В headers календаря є дублюючи кнопки `'Month'` та `'Year'`. 
 
-This directory will hold your Jest configs and mocks.
+Та також можно перейти на блок `'Month'` коли натиснути на **сьогоднішню дату** в headers календаря,
+наступне натискання на цю ж кнопку відкриє блок `'Year'`,
+a вже наступне натискання на цю ж кнопку відкриє блок `'Days'`,
 
-## Running Maestro end-to-end tests
 
-Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe from the [Ignite Cookbook](https://ignitecookbook.com/)!
+## Розрахунок повної ціни на замовлення 
 
-## Previous Boilerplates
+**Подача транспорту та Послуга єкспедітора**: є дефолтним значенням 2000 грн.
 
-- [2018 aka Bowser](https://github.com/infinitered/ignite-bowser)
-- [2017 aka Andross](https://github.com/infinitered/ignite-andross)
-- [2016 aka Ignite 1.0](https://github.com/infinitered/ignite-ir-boilerplate-2016)
+**Маршрут загрузки-вигрузки**: 1км - 20грн(кожен раз коли користувач повертаеться на 
+попередній скрін **Order** та змінює адресу загрузки чи вигрузки повно ціна буде динамічно 
+перераховуватися як і траєкторія маршрута на карті)
+
+**Послуга грузчиків**: 1 грузчик за 1 годину роботи - 100грн.
 

@@ -1,7 +1,6 @@
 import * as React from "react"
 import { StyleProp, TextInput, TextStyle, View, ViewStyle, StyleSheet, Pressable } from "react-native"
 import { observer } from "mobx-react-lite"
-import { colors, typography } from "app/theme"
 import { Text } from "app/components/text/text"
 import { palette } from "../../theme/palette"
 import { fontSize, size } from "../../utils/size"
@@ -56,6 +55,7 @@ export interface InputProps {
    */
   onPressIcon?: () => void
   value: any
+  keyboardType?: string
 }
 
 export const Input = observer(function Input({
@@ -71,6 +71,7 @@ export const Input = observer(function Input({
      value = '',
      icon = null,
      onPressIcon,
+     keyboardType = "default",
      ...rest
    }: InputProps) {
   const styles = fromStyles();
@@ -96,6 +97,8 @@ export const Input = observer(function Input({
             maxLength={maxLength}
             editable={!disabled}
             onChangeText={onChange}
+            textAlign={"left"}
+            keyboardType={keyboardType}
           />
           <Pressable onPress={onPressIcon} style={styles.iconBlock}>
             {icon || null}

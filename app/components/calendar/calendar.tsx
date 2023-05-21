@@ -65,10 +65,10 @@ const { width } = Dimensions.get("window")
               </Pressable>
             )}
             {state.mode === 'years' && (
-              <View>
+              <Pressable onPress={() => functions.setMode('days')}>
                 <Text style={styles.headerTitle}>{state.selectedYearsInterval[0]} -{' '}
                   {state.selectedYearsInterval[state.selectedYearsInterval.length - 1]}</Text>
-              </View>
+              </Pressable>
             )}
             <Pressable onPress={() => functions.onClickArrow('right')}>
               <RightIcon color={palette.white} />
