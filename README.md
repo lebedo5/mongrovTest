@@ -2,19 +2,20 @@
 
 [![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
 
-## The latest and greatest boilerplate for Infinite Red opinions
-
-Для запуску проєкта виконати декількі дій 
+### Для запуску проєкта виконати декількі дій 
 
 npm install --force
 or yarn install 
 
-Android:
+`Android:`
+
 adb reverse tcp:8081 tcp:8081
 
 npx react-native start 
 
-Ios: немає особливих вказань
+`Ios`: 
+
+немає особливих вказань
 
 
 Всі додаткові компоненти які є в проєкті такі як: `<Button />`, `<Text />`, `<Input />`, `<Checkbox />` - 
@@ -26,7 +27,7 @@ Ios: немає особливих вказань
 
 ## Функціонал
 
-`size()` - Повертає значення враховуючи ширину єкрана.
+`size()`, `fontSize()` - Повертає значення плотности пікселей телефона, масштабу шрифта та враховуючи ширину єкрана.
 
 `getLongitudeDelta()` - Динамічо визначае якє сама має бути значення `longitudeDelta` для регіона яке 
 ми вибираемо на карті.
